@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace MO_32_2_Yatsenko_terminator.NeuroNet
 {
-    enum MemoryNode
+    enum MemoryMod //режим работы памяти
     {
-        GET,
-        SET,
-        INIT
+        GET, //считывание
+        SET, //сохранение
+        INIT //инициализация
     }
     enum NeuronType
     {
-        Hidden,
-        Output
+        Hidden, //скрытый
+        Output //выходной
     }
-    
+    enum NetworkMode
+    {
+        Train, //обучение
+        Test, //проверка
+        Demo //распознование
+    }
 }
