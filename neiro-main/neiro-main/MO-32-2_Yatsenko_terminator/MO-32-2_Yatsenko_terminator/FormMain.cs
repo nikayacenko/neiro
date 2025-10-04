@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MO_32_2_Yatsenko_terminator.NeuroNet;
 
 namespace MO_32_2_Yatsenko_terminator
 {
@@ -62,6 +63,17 @@ namespace MO_32_2_Yatsenko_terminator
             tmpStr += "\n";
 
             File.AppendAllText(path, tmpStr);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            HiddenLayer hiddenLayer1 = new HiddenLayer(5, 7, NeuronType.Hidden, nameof(hiddenLayer1));
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            HiddenLayer hiddenLayer1 = new HiddenLayer(5, 7, NeuronType.Hidden, nameof(hiddenLayer1));
+
         }
     }
 }
