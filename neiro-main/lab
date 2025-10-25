@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MO_32_2_Yatsenko_terminator
+{
+    public partial class Form1 : Form
+    {
+        private double[] inputPixel; //массив входных данных
+        //private Network network; объявление нейросети
+        
+        //конструктор
+        public Form1()
+        {
+            InitializeComponent();
+
+            inputPixel = new double[15];
+
+        }
+
+        //обработчик события клика пиксельной кнопки
+        private void changing_state_pixel(object sender, EventArgs e)
+        {
+            //если кнопка изначально белая
+            if(((Button)sender).BackColor == Color.White)
+            {
+                ((Button)sender).BackColor = Color.Black;
+                inputPixel[((Button)sender).TabIndex] = 1d;
+            }
+            else
+            {
+                ((Button)sender).BackColor = Color.White;
+                inputPixel[((Button)sender).TabIndex] = 0d;
+            }
+        }
+    }
+}
