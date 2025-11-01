@@ -32,7 +32,7 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         public void Train(Network net)
         {
             net.input_layer = new InputLayer(NetworkMode.Train); //инициализация входного слоя
-            int epoches = 10; //количество эпох обучения
+            int epoches = 100; //количество эпох обучения
             double tmpSumError; //временная переменная суммы ошибок
             double[] errors; //вектор сигнала ошибки входного слоя
             double[] temp_gsums1; //вектор градиента 1-го скрытого слоя

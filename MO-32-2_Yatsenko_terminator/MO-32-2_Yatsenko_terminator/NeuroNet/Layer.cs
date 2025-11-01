@@ -13,8 +13,8 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurons;
-        protected const double learningrate = 0.060;
-        protected const double momentum = 0.050d;
+        protected const double learningrate = 0.0006;
+        protected const double momentum = 0.01d;
         protected double[,] lastdeltaweights;
         protected double[,] tempWeights;
         protected Neuron[] neurons;
