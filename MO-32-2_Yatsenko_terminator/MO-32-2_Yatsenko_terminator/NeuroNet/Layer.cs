@@ -85,7 +85,7 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
                 weightsInitialls(MemoryMod.SET, pathFileWeights);
             }
         }
-        private double[,] weightsInitialls(MemoryMod mm, string path)
+        public double[,] weightsInitialls(MemoryMod mm, string path)
         {
             Random random = new Random();
             char[] delim = new char[] { ';', ' ' };

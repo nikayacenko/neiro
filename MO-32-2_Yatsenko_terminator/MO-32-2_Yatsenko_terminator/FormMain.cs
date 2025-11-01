@@ -73,5 +73,50 @@ namespace MO_32_2_Yatsenko_terminator
             label_Output.Text = network.Fact.ToList().IndexOf(network.Fact.Max()).ToString();
             label_Probability.Text = (100 * network.Fact.Max()).ToString("0.00") + " %";
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            double[,] trainset;
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string[] tmpArrStr;
+            string[] tmpStr;
+
+            tmpArrStr = File.ReadAllLines(path + "train.txt"); //считывание обучающей выборки
+            trainset = new double[tmpArrStr.Length, 16]; // определение массива выборки
+
+            for (int i = 0; i < tmpArrStr.Length; i++)
+            {
+                tmpStr = tmpArrStr[i].Split(' '); // разбиение строки
+
+                for (int j = 0; j < 16; j++)
+                {
+                    trainset[i, j] = double.Parse(tmpStr[j]); //заполнение строки
+                }
+            }
+            path = "10";
+            Shuffling_Array_Rows(trainset); // перетасовка методом Фишера-Йетса
+        }
+        public void Shuffling_Array_Rows(double[,] arr)
+        {
+            // Метод Фишера-Йетса для перетасовки строк массива
+            Random random = new Random();
+            int rowCount = arr.GetLength(0);
+            int colCount = arr.GetLength(1);
+
+            // Проходим от последней строки к первой
+            for (int i = rowCount - 1; i > 0; i--)
+            {
+                // Генерируем случайный индекс от 0 до i
+                int j = random.Next(0, i + 1);
+
+                // Меняем местами строки i и j
+                for (int col = 0; col < colCount; col++)
+                {
+                    double temp = arr[i, col];
+                    arr[i, col] = arr[j, col];
+                    arr[j, col] = temp;
+                }
+            }
+        }
     }
 }
