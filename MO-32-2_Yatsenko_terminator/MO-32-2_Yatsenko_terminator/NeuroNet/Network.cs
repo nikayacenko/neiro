@@ -32,7 +32,7 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         public void Train(Network net)
         {
             net.input_layer = new InputLayer(NetworkMode.Train); //инициализация входного слоя
-            int epoches = 40; //количество эпох обучения
+            int epoches = 30; //количество эпох обучения
             double tmpSumError; //временная переменная суммы ошибок
             double[] errors; //вектор сигнала ошибки входного слоя
             double[] temp_gsums1; //вектор градиента 1-го скрытого слоя
@@ -76,9 +76,9 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
             net.input_layer = null;
 
             //запись скорректированных весов
-            net.hidden_layer1.WeightsInitializer(MemoryMod.SET, "memory\\" + nameof(hidden_layer1) + "_memory.csv");
-            net.hidden_layer2.WeightsInitializer(MemoryMod.SET, "memory\\" + nameof(hidden_layer2) + "_memory.csv");
-            net.output_layer.WeightsInitializer(MemoryMod.SET, "memory\\" + nameof(output_layer) + "_memory.csv");
+            net.hidden_layer1.WeightsInitializer(MemoryMod.SET, nameof(hidden_layer1) + "_memory.csv");
+            net.hidden_layer2.WeightsInitializer(MemoryMod.SET, nameof(hidden_layer2) + "_memory.csv");
+            net.output_layer.WeightsInitializer(MemoryMod.SET, nameof(output_layer) + "_memory.csv");
         }
     }
 }
