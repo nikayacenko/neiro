@@ -56,6 +56,7 @@
             this.button17 = new System.Windows.Forms.Button();
             this.chart_Earn = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button_training = new System.Windows.Forms.Button();
+            this.testing = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NecesseryOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Earn)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +70,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(39, 60);
+            this.button1.Location = new System.Drawing.Point(55, 46);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(26, 28);
@@ -86,7 +87,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(70, 60);
+            this.button2.Location = new System.Drawing.Point(86, 46);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 28);
@@ -103,7 +104,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(101, 60);
+            this.button3.Location = new System.Drawing.Point(117, 46);
             this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(26, 28);
@@ -120,7 +121,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(39, 94);
+            this.button4.Location = new System.Drawing.Point(55, 80);
             this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(26, 28);
@@ -137,7 +138,7 @@
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(70, 94);
+            this.button5.Location = new System.Drawing.Point(86, 80);
             this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(26, 28);
@@ -154,7 +155,7 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(101, 94);
+            this.button6.Location = new System.Drawing.Point(117, 80);
             this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(26, 28);
@@ -171,7 +172,7 @@
             this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(39, 127);
+            this.button7.Location = new System.Drawing.Point(55, 112);
             this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(26, 28);
@@ -188,7 +189,7 @@
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(70, 127);
+            this.button8.Location = new System.Drawing.Point(86, 112);
             this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(26, 28);
@@ -205,7 +206,7 @@
             this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(101, 127);
+            this.button9.Location = new System.Drawing.Point(117, 112);
             this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(26, 28);
@@ -222,7 +223,7 @@
             this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(39, 161);
+            this.button10.Location = new System.Drawing.Point(55, 146);
             this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(26, 28);
@@ -239,7 +240,7 @@
             this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(70, 161);
+            this.button11.Location = new System.Drawing.Point(86, 146);
             this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(26, 28);
@@ -256,7 +257,7 @@
             this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(101, 161);
+            this.button12.Location = new System.Drawing.Point(117, 146);
             this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(26, 28);
@@ -273,7 +274,7 @@
             this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(39, 194);
+            this.button13.Location = new System.Drawing.Point(55, 180);
             this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(26, 28);
@@ -290,7 +291,7 @@
             this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(70, 194);
+            this.button14.Location = new System.Drawing.Point(86, 180);
             this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(26, 28);
@@ -307,7 +308,7 @@
             this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(101, 194);
+            this.button15.Location = new System.Drawing.Point(117, 180);
             this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(26, 28);
@@ -317,7 +318,7 @@
             // 
             // ButtonSaveTrainSample
             // 
-            this.ButtonSaveTrainSample.Location = new System.Drawing.Point(5, 275);
+            this.ButtonSaveTrainSample.Location = new System.Drawing.Point(16, 236);
             this.ButtonSaveTrainSample.Name = "ButtonSaveTrainSample";
             this.ButtonSaveTrainSample.Size = new System.Drawing.Size(75, 23);
             this.ButtonSaveTrainSample.TabIndex = 15;
@@ -327,7 +328,7 @@
             // 
             // ButtonSaveTestSample
             // 
-            this.ButtonSaveTestSample.Location = new System.Drawing.Point(86, 275);
+            this.ButtonSaveTestSample.Location = new System.Drawing.Point(98, 236);
             this.ButtonSaveTestSample.Name = "ButtonSaveTestSample";
             this.ButtonSaveTestSample.Size = new System.Drawing.Size(75, 23);
             this.ButtonSaveTestSample.TabIndex = 16;
@@ -337,7 +338,7 @@
             // 
             // numericUpDown_NecesseryOutput
             // 
-            this.numericUpDown_NecesseryOutput.Location = new System.Drawing.Point(23, 239);
+            this.numericUpDown_NecesseryOutput.Location = new System.Drawing.Point(39, 212);
             this.numericUpDown_NecesseryOutput.Maximum = new decimal(new int[] {
             9,
             0,
@@ -349,7 +350,7 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(5, 356);
+            this.button16.Location = new System.Drawing.Point(10, 324);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(75, 23);
             this.button16.TabIndex = 18;
@@ -361,7 +362,7 @@
             // 
             this.label_Output.AutoSize = true;
             this.label_Output.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Output.Location = new System.Drawing.Point(11, 9);
+            this.label_Output.Location = new System.Drawing.Point(9, -1);
             this.label_Output.Name = "label_Output";
             this.label_Output.Size = new System.Drawing.Size(76, 46);
             this.label_Output.TabIndex = 19;
@@ -371,7 +372,7 @@
             // 
             this.label_Probability.AutoSize = true;
             this.label_Probability.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Probability.Location = new System.Drawing.Point(93, 26);
+            this.label_Probability.Location = new System.Drawing.Point(98, 7);
             this.label_Probability.Name = "label_Probability";
             this.label_Probability.Size = new System.Drawing.Size(132, 25);
             this.label_Probability.TabIndex = 20;
@@ -379,7 +380,7 @@
             // 
             // buttonRecognize
             // 
-            this.buttonRecognize.Location = new System.Drawing.Point(26, 304);
+            this.buttonRecognize.Location = new System.Drawing.Point(39, 266);
             this.buttonRecognize.Name = "buttonRecognize";
             this.buttonRecognize.Size = new System.Drawing.Size(101, 23);
             this.buttonRecognize.TabIndex = 21;
@@ -389,7 +390,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(85, 357);
+            this.button17.Location = new System.Drawing.Point(97, 324);
             this.button17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(76, 23);
@@ -409,7 +410,7 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Name = "Series1";
             this.chart_Earn.Series.Add(series1);
-            this.chart_Earn.Size = new System.Drawing.Size(720, 394);
+            this.chart_Earn.Size = new System.Drawing.Size(541, 348);
             this.chart_Earn.TabIndex = 23;
             this.chart_Earn.Text = "chart";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -419,7 +420,7 @@
             // 
             // button_training
             // 
-            this.button_training.Location = new System.Drawing.Point(39, 329);
+            this.button_training.Location = new System.Drawing.Point(17, 295);
             this.button_training.Name = "button_training";
             this.button_training.Size = new System.Drawing.Size(75, 23);
             this.button_training.TabIndex = 24;
@@ -427,11 +428,22 @@
             this.button_training.UseVisualStyleBackColor = true;
             this.button_training.Click += new System.EventHandler(this.button_training_Click);
             // 
+            // testing
+            // 
+            this.testing.Location = new System.Drawing.Point(98, 296);
+            this.testing.Name = "testing";
+            this.testing.Size = new System.Drawing.Size(75, 23);
+            this.testing.TabIndex = 25;
+            this.testing.Text = "тестировать";
+            this.testing.UseVisualStyleBackColor = true;
+            this.testing.Click += new System.EventHandler(this.testing_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 391);
+            this.ClientSize = new System.Drawing.Size(784, 349);
+            this.Controls.Add(this.testing);
             this.Controls.Add(this.button_training);
             this.Controls.Add(this.chart_Earn);
             this.Controls.Add(this.button17);
@@ -494,6 +506,7 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_Earn;
         private System.Windows.Forms.Button button_training;
+        private System.Windows.Forms.Button testing;
     }
 }
 

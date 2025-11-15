@@ -104,7 +104,15 @@ namespace MO_32_2_Yatsenko_terminator
             {
                 chart_Earn.Series[0].Points.AddY(network.E_error_avr[i]);
             }
-            MessageBox.Show("обучение успешно завершено", "информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void testing_Click(object sender, EventArgs e)
+        {
+            network.Test(network);
+            for (int i = 0; i < network.E_error_avr.Length; i++)
+            {
+                chart_Earn.Series[0].Points.AddY(network.E_error_avr[i]);
+            }
         }
         //public void Shuffling_Array_Rows(double[,] arr)
         //{
