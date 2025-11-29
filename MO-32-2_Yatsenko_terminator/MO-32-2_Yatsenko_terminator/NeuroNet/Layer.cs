@@ -12,8 +12,25 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurons;
-        protected const double learningrate = 0.016;
-        protected const double momentum = 0.05d;
+        //protected const double learningrate = 0.030551;
+        //protected const double momentum = 0.005d;
+
+        //protected const double learningrate = 0.0305515;
+        //protected const double momentum = 0.005d;
+
+        //protected const double learningrate = 0.0305515585;
+        //protected const double momentum = 0.005555501d;
+
+        //protected const double learningrate = 0.039905515585;
+        //protected const double momentum = 0.004555509d;
+        protected const double learningrate = 0.035;
+        protected const double momentum = 0.65d;
+        //protected const double learningrate = 0.6115559;
+        //protected const double momentum = 0.095d;
+
+        //protected const double learningrate = 0.0725d;
+        //protected const double momentum = 0.072d;
+
         protected double[,] lastdeltaweights;
         //protected double[,] temporaryWeights;// массив для проверки SET
         protected Neuron[] neurons;
@@ -30,8 +47,16 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
             }
         }
 
+        // Добавляем для хранения накопленных градиентов
+        protected double[,] accumulatedGradients;
+
+        public abstract void CalculateAndStoreGradients(double[] gr_sums);
+        public abstract void ApplyBatchGradients(int batchSize);
+        public abstract double[] GetLastGradientSums();
+
         protected Layer(int non, int nopn, NeuronType nt, string nm_Layer)
         {
+            accumulatedGradients = new double[non, nopn + 1];
             //int i, j;
             numofneurons = non;
             numofprevneurons = nopn;
@@ -166,6 +191,19 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
                     weights[i, j] = weights[i, j] / Sqrt(disp);
 
                 }
+                //double maxAbs = 0;
+                //for(int j = 0; j < b; j++)
+                //{
+                //    double absVal = Math.Abs(weights[i, j]);
+                //    if (absVal > maxAbs) maxAbs = absVal;
+                //}
+                //if(maxAbs > 0)
+                //{
+                //    for(int j = 0; j < b; j++)
+                //    {
+                //        weights[i, j] /= maxAbs;
+                //    }
+                //}
 
             }
             return weights;

@@ -56,22 +56,46 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         }
 
         // перетасовка методом Фишера-Йетса
+        //public void Shuffling_Array_Rows(double[,] arr)
+        //{
+        //    Random random = new Random();
+        //    int rows = arr.GetLength(0);
+        //    int cols = arr.GetLength(1);
+        //    for (int i = rows - 1; i >= 1; i--)
+        //    {
+
+        //        int r = random.Next(i);
+        //        for (int j = 0; j < cols; j++)
+        //        {
+        //            double temp = arr[i, j];
+        //            arr[i, j] = arr[r, j];
+        //            arr[r, j] = temp;
+        //        }
+
+        //    }
+        //}
         public void Shuffling_Array_Rows(double[,] arr)
         {
-            Random random = new Random();
-            int rows = arr.GetLength(0);
-            int cols = arr.GetLength(1);
-            for (int i = rows - 1; i >= 1; i--)
+            if (arr == null) return;
+
+            Random rand = new Random();
+            int rowCount = arr.GetLength(0);
+            int colCount = arr.GetLength(1);
+            double[] tempRow = new double[colCount];
+
+            for (int i = rowCount - 1; i > 0; i--)
             {
+                int j = rand.Next(i + 1);
 
-                int r = random.Next(i);
-                for (int j = 0; j < cols; j++)
-                {
-                    double temp = arr[i, j];
-                    arr[i, j] = arr[r, j];
-                    arr[r, j] = temp;
-                }
+                // Обмен строками i и j
+                for (int k = 0; k < colCount; k++)
+                    tempRow[k] = arr[i, k];
 
+                for (int k = 0; k < colCount; k++)
+                    arr[i, k] = arr[j, k];
+
+                for (int k = 0; k < colCount; k++)
+                    arr[j, k] = tempRow[k];
             }
         }
     }

@@ -104,7 +104,20 @@ namespace MO_32_2_Yatsenko_terminator
             {
                 chart_Earn.Series[0].Points.AddY(network.E_error_avr[i]);
             }
-            MessageBox.Show("обучение успешно завершено", "информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Добавляем данные точности на второй график (chart_Accuracy)
+            for (int i = 0; i < network.Train_accuracy.Length; i++)
+            {
+                chart_Accuracy.Series[0].Points.AddY(network.Train_accuracy[i]*100);
+            }
+        }
+
+        private void testing_Click(object sender, EventArgs e)
+        {
+            network.Test(network);
+            for (int i = 0; i < network.E_error_avr.Length; i++)
+            {
+                chart_Earn.Series[0].Points.AddY(network.E_error_avr[i]);
+            }
         }
         //public void Shuffling_Array_Rows(double[,] arr)
         //{

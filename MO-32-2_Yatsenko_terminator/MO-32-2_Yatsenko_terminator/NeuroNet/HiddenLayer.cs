@@ -13,6 +13,71 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         {
 
         }
+        private double[] lastGradientSums;
+
+        public override void CalculateAndStoreGradients(double[] errors)
+        {
+            // Сохраняем gradient sums для следующего слоя
+            lastGradientSums = CalculateGradientSums(errors);
+
+            // Накопление градиентов весов
+            if (accumulatedGradients == null)
+                accumulatedGradients = new double[neurons.Length, numofprevneurons + 1];
+
+            for (int i = 0; i < numofneurons; i++)
+            {
+                for (int n = 0; n < numofprevneurons + 1; n++)
+                {
+                    double gradient;
+                    if (n == 0)
+                        gradient = errors[i];
+                    else
+                        gradient = neurons[i].Inputs[n - 1] * errors[i];
+
+                    accumulatedGradients[i, n] += gradient;
+                }
+            }
+        }
+
+        public override void ApplyBatchGradients(int batchSize)
+        {
+            if (accumulatedGradients == null) return;
+
+            for (int i = 0; i < numofneurons; i++)
+            {
+                for (int n = 0; n < numofprevneurons + 1; n++)
+                {
+                    double avgGradient = accumulatedGradients[i, n] / batchSize;
+                    double deltaw = momentum * lastdeltaweights[i, n] + learningrate * avgGradient;
+
+                    lastdeltaweights[i, n] = deltaw;
+                    neurons[i].Weights[n] += deltaw;
+                }
+            }
+
+            // Сбрасываем накопленные градиенты
+            accumulatedGradients = new double[neurons.Length, numofprevneurons + 1];
+        }
+
+        public override double[] GetLastGradientSums()
+        {
+            return lastGradientSums;
+        }
+
+        private double[] CalculateGradientSums(double[] errors)
+        {
+            double[] gr_sum = new double[numofprevneurons];
+            for (int j = 0; j < numofprevneurons; j++)
+            {
+                double sum = 0;
+                for (int k = 0; k < numofneurons; k++)
+                {
+                    sum += neurons[k].Weights[j + 1] * errors[k];
+                }
+                gr_sum[j] = sum;
+            }
+            return gr_sum;
+        }
         //прямой проход
         public override void Recognize(Network net, Layer nextLayer)
         {
@@ -30,7 +95,7 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
                 double sum = 0;
                 for (int k = 0; k < numofneurons; k++)
                 {
-                    sum += neurons[k].Weights[j] * neurons[k].Derivative * gr_sums[k];//через градиентные суммы и производную
+                    sum += neurons[k].Weights[j+1] * neurons[k].Derivative * gr_sums[k];//через градиентные суммы и производную
                 }
                 gr_sum[j] = sum;
             }
