@@ -32,6 +32,13 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
             net.output_layer.Recognize(net, null);
         }
 
+        public void DropOut(Network net)
+        {
+            net.hidden_layer1.dropOut();
+            net.hidden_layer2.dropOut();
+            net.output_layer.dropOut();
+        }
+
         // Упрощенная версия с мини-батчами
         public void Train(Network net)
         {
@@ -117,8 +124,7 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
                 e_error_avr[k] /= totalSamples;
                 train_accuracy[k] = (double)correctPredictions / totalSamples;
 
-                // Вывод прогресса для отладки
-                Console.WriteLine($"Epoch {k + 1}: Error = {e_error_avr[k]:F4}, Accuracy = {train_accuracy[k]:P2}");
+
             }
 
             net.input_layer = null;

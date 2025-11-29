@@ -12,24 +12,9 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurons;
-        //protected const double learningrate = 0.030551;
-        //protected const double momentum = 0.005d;
 
-        //protected const double learningrate = 0.0305515;
-        //protected const double momentum = 0.005d;
-
-        //protected const double learningrate = 0.0305515585;
-        //protected const double momentum = 0.005555501d;
-
-        //protected const double learningrate = 0.039905515585;
-        //protected const double momentum = 0.004555509d;
         protected const double learningrate = 0.035;
         protected const double momentum = 0.65d;
-        //protected const double learningrate = 0.6115559;
-        //protected const double momentum = 0.095d;
-
-        //protected const double learningrate = 0.0725d;
-        //protected const double momentum = 0.072d;
 
         protected double[,] lastdeltaweights;
         //protected double[,] temporaryWeights;// массив для проверки SET
@@ -214,6 +199,6 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
 
         abstract public double[] BackwardPass(double[] stuff);
 
-
+        private void dropOut
     }
 }

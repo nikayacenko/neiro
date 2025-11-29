@@ -119,6 +119,11 @@ namespace MO_32_2_Yatsenko_terminator
                 chart_Earn.Series[0].Points.AddY(network.E_error_avr[i]);
             }
         }
+
+        private void drop_out_button_Click(object sender, EventArgs e)
+        {
+            network.DropOut(network);
+        }
         //public void Shuffling_Array_Rows(double[,] arr)
         //{
         //    // Метод Фишера-Йетса для перетасовки строк массива
