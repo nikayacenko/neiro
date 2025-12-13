@@ -34,17 +34,28 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
 
         public void DropOut(Network net)
         {
-            net.hidden_layer1.dropOut();
-            net.hidden_layer2.dropOut();
-            net.output_layer.dropOut();
+            DropOut(net, 20); // Значение по умолчанию 20%
+        }
+
+        public void DropOut(Network net, double percent)
+        {
+            net.hidden_layer1.DropOut(percent);
+            net.hidden_layer2.DropOut(percent);
+            net.output_layer.DropOut(percent);
         }
 
         // Упрощенная версия с мини-батчами
         public void Train(Network net)
         {
-            net.input_layer = new InputLayer(NetworkMode.Train);
+            net.input_layer = new InputLayer(NetworkMode.Train); //загрузка из train.txt
             int epoches = 12;
             int batchSize = 8; // размер мини-батча
+
+            net.hidden_layer1.ReinitializeZeroWeights();
+            net.hidden_layer2.ReinitializeZeroWeights();
+            net.output_layer.ReinitializeZeroWeights();
+
+
 
             e_error_avr = new double[epoches];
             train_accuracy = new double[epoches];

@@ -114,5 +114,10 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
             }
             return gr_sum;
         }
+
+        public override void DropOut(double percent)
+        {
+            base.DropOut(percent);
+        }
     }
 }

@@ -135,13 +135,21 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
         {
             double[,] weights = new double[a, b];
             Random random = new Random();
+
+            // Использовать инициализацию Xavier/Glorot с масштабным коэффициентом
+            double scale = Math.Sqrt(2.0 / (numofprevneurons + 1));
+            //Математическая идея:
+            //    Для функции активации tanh(которую вы используете) 
+            //    оптимальный масштаб = √(2 / n), 
+            //    где n -количество входов нейрона.
+            //    Это помогает сохранить дисперсию сигналов 
+            //    при прямом и обратном распространении.
+
             for (int i = 0; i < a; i++)
             {
-
                 for (int j = 0; j < b; j++)
                 {
-                    weights[i, j] = random.NextDouble();
-
+                    weights[i, j] = random.NextDouble() * scale * 2 - scale;
                 }
             }
             return weights;
@@ -176,19 +184,6 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
                     weights[i, j] = weights[i, j] / Sqrt(disp);
 
                 }
-                //double maxAbs = 0;
-                //for(int j = 0; j < b; j++)
-                //{
-                //    double absVal = Math.Abs(weights[i, j]);
-                //    if (absVal > maxAbs) maxAbs = absVal;
-                //}
-                //if(maxAbs > 0)
-                //{
-                //    for(int j = 0; j < b; j++)
-                //    {
-                //        weights[i, j] /= maxAbs;
-                //    }
-                //}
 
             }
             return weights;
@@ -199,6 +194,69 @@ namespace MO_32_2_Yatsenko_terminator.NeuroNet
 
         abstract public double[] BackwardPass(double[] stuff);
 
-        private void dropOut
+        public virtual void DropOut(double percent)
+        {
+            if (percent <= 0) return;
+
+            Random rand = new Random();
+            int totalWeights = numofneurons * (numofprevneurons + 1);
+            int weightsToDrop = (int)(totalWeights * percent / 100.0);
+
+            // Сбрасываем случайные веса
+            for (int i = 0; i < weightsToDrop; i++)
+            {
+                int neuronIdx = rand.Next(numofneurons);
+                int weightIdx = rand.Next(numofprevneurons + 1);
+
+                neurons[neuronIdx].Weights[weightIdx] = 0;
+            }
+
+            // Сохраняем обнуленные веса
+            WeightsInitializer(MemoryMod.SET, pathFileWeights);
+        }
+
+        public void ReinitializeZeroWeights()
+        {
+            // Создаем временный массив весов из текущих нейронов
+            double[,] currentWeights = new double[numofneurons, numofprevneurons + 1];
+
+            for (int i = 0; i < numofneurons; i++)
+            {
+                for (int j = 0; j < numofprevneurons + 1; j++)
+                {
+                    currentWeights[i, j] = neurons[i].Weights[j];
+                }
+            }
+
+            // Получаем новые случайные веса через существующий метод INIT
+            double[,] newRandomWeights = WeightsInitializer(MemoryMod.INIT, "");
+
+            // Заменяем только нулевые веса на случайные
+            Random rand = new Random();
+            for (int i = 0; i < numofneurons; i++)
+            {
+                for (int j = 0; j < numofprevneurons + 1; j++)
+                {
+                    if (currentWeights[i, j] == 0)
+                    {
+                        // Берем случайное значение из newRandomWeights
+                        currentWeights[i, j] = newRandomWeights[i, j];
+                    }
+                }
+            }
+
+            // Обновляем веса нейронов
+            for (int i = 0; i < numofneurons; i++)
+            {
+                for (int j = 0; j < numofprevneurons + 1; j++)
+                {
+                    neurons[i].Weights[j] = currentWeights[i, j];
+                }
+            }
+
+            // Сохраняем обновленные веса
+            WeightsInitializer(MemoryMod.SET, pathFileWeights);
+        }
+
     }
 }
