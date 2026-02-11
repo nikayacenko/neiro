@@ -1,0 +1,69 @@
+# Условие задачи:
+# Реализовать нейронную сеть, состоящую из 4-х нейронов типа WTA
+# (рисунок 2), предназначенную для классификации входных
+# двухкомпонентных векторов.
+import random
+import math
+
+x1 = [0.97, 0.20]
+x2 = [1.00, 0.00]
+x3 = [-0.72, 0.70]
+x4 = [-0.67, 0.74]
+x5 = [-0.80, 0.60]
+x6 = [0.00, -1.00]
+x7 = [0.20, -0.97]
+x8 = [-0.30, -0.95]
+
+vectors = [x1, x2, x3, x4, x5, x6, x7, x8]
+
+num_neurons = 4
+learning_rate = 0.5
+
+weights = []
+
+print("Начальные веса:")
+for i in range(num_neurons):
+    w = [random.uniform(-1, 1), random.uniform(-1, 1)]
+    x1,x2 = w[0],w[1]
+    length = math.sqrt(x1**2 + x2**2)
+    w = [x1/length, x2/length]
+    weights.append(w)
+    print(f"Нейрон {i}:", weights[i])
+
+print("\nПроцесс обучения:")
+for j in range(len(vectors)):
+    vector = vectors[j]
+    print(f"входы x1,x2 ({j+1})",vector)
+
+    outputs = []
+    for i in range(num_neurons):
+        output = weights[i][0]*vector[0] + weights[i][1]*vector[1]
+        outputs.append(output)
+
+    print("выходы y",outputs)
+
+    max = outputs[0]
+    win = 0
+    for i in range(num_neurons):
+        if outputs[i] > max:
+            max = outputs[i]
+            win = i
+
+    print("победитель - нейрон", win)
+
+    old_w = [weights[win][0],weights[win][1]]
+    print(old_w)
+
+    weights[win][0] = old_w[0] + learning_rate*(vector[0] - old_w[0])
+    weights[win][1] = old_w[1] + learning_rate*(vector[1] - old_w[1])
+
+    x1,x2 = weights[win][0],weights[win][1]
+    length = math.sqrt(x1 ** 2 + x2 ** 2)
+    weights[win][0] = x1 / length
+    weights[win][1] = x2 / length
+
+    print("Обновленные веса нейрон:", weights[win][0]," ", weights[win][1])
+
+print("\nвеса после обучения:")
+for i in range(num_neurons):
+    print(f"Нейрон {i}: [{weights[i][0]:.6f}, {weights[i][1]:.6f}]")
