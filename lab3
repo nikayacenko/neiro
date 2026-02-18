@@ -1,0 +1,66 @@
+# Условие задачи:
+# Реализовать нейронную сеть, состоящую из 4-х нейронов типа WTA
+# (рисунок 2), предназначенную для классификации входных
+# двухкомпонентных векторов.
+import random
+import math
+
+x1 = [0.97, 0.20]
+x2 = [1.00, 0.00]
+x3 = [-0.72, 0.70]
+x4 = [-0.67, 0.74]
+x5 = [-0.80, 0.60]
+x6 = [0.00, -1.00]
+x7 = [0.20, -0.97]
+x8 = [-0.30, -0.95]
+
+vectors = [x1, x2, x3, x4, x5, x6, x7, x8]
+
+num_neurons = 2
+learning_rate = 0.1
+
+weights = []
+
+print("Начальные веса:")
+for i in range(num_neurons):
+    w = [random.uniform(-1, 1), random.uniform(-1, 1)]
+    x1,x2 = w[0],w[1]
+    length = math.sqrt(x1**2 + x2**2)
+    w = [x1/length, x2/length]
+    weights.append(w)
+    print(f"Нейрон {i}:", weights[i])
+
+print("\nПроцесс обучения:")
+# for epoch in range(3):
+for j in range(len(vectors)):
+    vector = vectors[j]
+    print(f"\nвходы x1,x2 ({j+1})",vector)
+
+    outputs = []
+    for i in range(num_neurons):
+        output = (weights[i][0]*vector[0] + weights[i][1]*vector[1])
+        outputs.append(output)
+
+    print("выходы y",outputs)
+
+    # ОБУЧЕНИЕ ПО ПРАВИЛУ ХЕББА:
+    # Δw_ij = η * y_j * y_i
+    # w_ij(t+1) = w_ij(t) + Δw_ij
+
+    for i in range(num_neurons):
+        print(f"нейрон: {i}: ")
+
+        delta_w1 = learning_rate*vector[0]*outputs[i]
+        old_w1 = weights[i][0]
+        weights[i][0] = old_w1 + delta_w1
+
+        delta_w2 = learning_rate*vector[1]*outputs[i]
+        old_w2 = weights[i][1]
+        weights[i][1] = old_w2 + delta_w2
+
+    print("Обновленные веса нейрона 1:", weights[0][0]," ", weights[1][0])
+    print("Обновленные веса нейрона 2:", weights[0][1]," ", weights[1][1])
+
+print("\nвеса после обучения:")
+for i in range(num_neurons):
+    print(f"Нейрон {i}: ", weights[i][0], weights[i][1])
